@@ -1,144 +1,61 @@
-# EM3K Viewer
+# Edumatic 3000 (EM3K)
 
-EM3K (Edumatic 3000) is an offline-first educational content viewer built with Preact.
+**Portable education.  Offline learning.  No student account required.**
 
-The project is part of a larger ecosystem designed around portable, self-contained course packages that can be distributed through traditional web services, local networks, removable media, and decentralized technologies such as IPFS.
+Edumatic 3000 (EM3K) is an open-source educational platform designed around self-contained course packages, a lightweight learner application, and tools that allow educators to create and distribute lessons and quizzes.
 
-Unlike traditional Learning Management Systems (LMS), EM3K is designed to function without requiring user accounts, constant connectivity, or centralized infrastructure.
+EM3K takes a different approach from traditional Learning Management Systems (LMS).  Learning content can be downloaded, installed, and used locally without requiring continuous internet connectivity, centralized student accounts, or an active connection to the publishing server.
+
+The goal is simple: make educational content easy to create, distribute, and use.
 
 ## Project Goals
 
-- Offline-first learning
-- Self-contained course packages
-- Privacy-focused student experience
-- Optional progress tracking
-- Portable content formats
-- Open publishing ecosystem
-- Support for decentralized distribution
+- **Offline-first learning:** Installed courses should remain usable without an internet connection.
+- **No required learner accounts:** Students can install courses and learn anonymously.
+- **Portable course packages:** Courses are self-contained and can be distributed as ZIP archives.
+- **Local learner data:** Course installations and learning progress are stored on the learner's device.
+- **Open content formats:** JSON Schema defines a documented contract between authoring tools, publishers, and viewers.
+- **Independent components:** The viewer, teacher portal, and catalog have separate responsibilities.
+- **Flexible distribution:** Courses can be shared through the official catalog or independently of EM3K's infrastructure.
 
-## Current Status
+## The EM3K Ecosystem
 
-This repository contains the student-facing viewer application.
+EM3K is organized into several independent components.
 
-The viewer is responsible for:
+| Component | Purpose | Technology |
+|---|---|---|
+| [EM3K Viewer](https://github.com/edumatic3k/em3k-viewer) | Course installation, lessons, quizzes, and local progress | Preact PWA |
+| [EM3K Server](https://github.com/edumatic3k/em3k-server) | Teacher accounts, course authoring, and publishing | Laravel, Filament, MariaDB |
+| [EM3K Data](https://github.com/edumatic3k/em3k-data) | Published course packages and catalog data | Static files and JSON |
 
-- Managing a local course library
-- Validating course packages
-- Activating and deactivating content
-- Rendering lessons and quizzes
-- Tracking learner progress
-- Supporting offline usage
+### Learner Viewer — em3k.org
 
-The project is currently undergoing a major architectural refactor focused on:
+The viewer is the primary student-facing application.
 
-- Modular content structures
-- JSON Schema validation
-- Package-based course management
-- Future support for desktop and mobile deployments
+Learners can install courses, navigate lessons, answer practice quizzes, and maintain a personal course library.
 
-## Content Structure
+Installed content and progress are stored locally in the browser using IndexedDB.  The viewer does not require a learner account or a connection to the Laravel backend for course playback.
 
-Courses are self-contained packages.
+The viewer is built with Preact and uses JSON Schema validation to check course packages before installation.
 
-```text
-teacher/
-└── course/
-    ├── course.json
-    ├── lessons/
-    ├── images/
-    ├── videos/
-    └── assets/
-```
+### Teacher Portal — teacher.em3k.org
 
-Each course contains all content required to render lessons without relying on a server.
+The teacher portal is intended to provide a web-based environment where educators can create and manage courses without manually editing JSON files.
 
-## Planned Ecosystem
+Laravel and Filament provide the foundation for authentication, database management, administrative interfaces, and future course-authoring tools.
 
-### Viewer
+Planned teacher workflows include creating courses, organizing lessons, adding content blocks and quizzes, and publishing completed courses.
 
-Student-facing application for consuming educational content.
+The backend foundation exists, but the course-authoring and publishing workflows are still under development.
 
-Platforms:
+### Course Catalog — catalog.em3k.org
 
-- PWA
-- Tauri Desktop
-- React Native Mobile
+The catalog is intended to serve as a lightweight discovery and distribution service.
 
-### Teacher Portal
+Published course packages and their associated catalog metadata will be available as static artifacts.  Learners will be able to discover courses and install them into the viewer.
 
-Content authoring and management platform.
+The catalog is not required for independently distributed course ZIP files.
 
-Planned stack:
+## Portable Course Packages
 
-- Laravel
-- Filament
-- MySQL
-
-### Catalog
-
-Course discovery and distribution service.
-
-Features:
-
-- Search
-- Publishing
-- Verification
-- Package distribution
-- Validation
-
-EM3K uses JSON Schema validation (AJV) to ensure content packages conform to the expected structure before activation.
-
-Future validation may include:
-
-- Asset verification
-- Digital signatures
-- Integrity checks
-- Schema migration support
-
-## Future Features
-
-- Package installation
-- Local content sharing
-- Bluetooth distribution
-- Mesh networking
-- Torrent support
-- IPFS support
-- Signed content packages
-- White-label deployments
-- Organization-managed catalogs
-
-## Philosophy
-
-Learning should not depend on centralized infrastructure.
-
-Students should be able to download educational content once and continue learning regardless of connectivity, platform, or location.
-
-EM3K aims to provide a lightweight, portable alternative to traditional server-centric LMS platforms.
-
-## Long-Term Vision
-
-EM3K is evolving beyond a traditional course viewer into an open educational content ecosystem.
-
-The long-term goal is to create a platform where educators can:
-
-- Create courses
-- Publish courses
-- Share courses
-- Verify courses
-- Distribute courses through multiple channels
-
-Content should be portable and usable whether it is delivered through:
-
-- The official EM3K catalog
-- Private organizational catalogs
-- Local networks
-- USB drives
-- IPFS
-- Torrents
-- Direct file sharing
-
-The viewer, teacher portal, and catalog are intended to serve as reference implementations built on open schemas and content formats, allowing third parties to build compatible tools and services in the future.
-
-EM3K's guiding principle is simple:
-
-Learning should remain accessible even when the internet is not.
+A course package contains a manifest, lessons, and any assets
