@@ -2,9 +2,9 @@
 
 **Create. Share. Learn. Anywhere.**
 
-Edumatic 3000 (EM3K) is an open-source educational platform designed around self-contained course packages, a lightweight learner application, and tools that allow educators to create and distribute lessons and quizzes.
+Edumatic 3000 (Em3k) is an open-source educational platform designed around self-contained course packages, a lightweight learner application, and tools that allow educators to create and distribute lessons and quizzes.
 
-EM3K takes a different approach from traditional Learning Management Systems (LMS).  Learning content can be downloaded, installed, and used locally without requiring continuous internet connectivity, centralized student accounts, or an active connection to the publishing server.
+Em3k takes a different approach from traditional Learning Management Systems (LMS).  Learning content can be downloaded, installed, and used locally without requiring continuous internet connectivity, centralized student accounts, or an active connection to the publishing server.
 
 The goal is simple: make educational content easy to create, distribute, and use.
 
@@ -20,13 +20,13 @@ The goal is simple: make educational content easy to create, distribute, and use
 
 ## The EM3K Ecosystem
 
-EM3K is organized into several independent components.
+Em3k is organized into several independent components.
 
 | Component | Purpose | Technology |
 |---|---|---|
-| [EM3K Viewer](https://github.com/edumatic3k/em3k-viewer) | Course installation, lessons, quizzes, and local progress | Preact PWA |
-| [EM3K Server](https://github.com/edumatic3k/em3k-server) | Teacher accounts, course authoring, and publishing | Laravel, Filament, MariaDB |
-| [EM3K Data](https://github.com/edumatic3k/em3k-data) | Published course packages and catalog data | Static files and JSON |
+| [Em3k Viewer](https://github.com/edumatic3k/em3k-viewer) | Course installation, lessons, quizzes, and local progress | Preact PWA |
+| [Em3k Server](https://github.com/edumatic3k/em3k-server) | Teacher accounts, course authoring, and publishing | Laravel, Filament, MariaDB |
+| [Em3k Data](https://github.com/edumatic3k/em3k-data) | Published course packages and catalog data | Static files and JSON |
 
 ### Learner Viewer — em3k.org
 
