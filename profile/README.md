@@ -1,6 +1,6 @@
-# Edumatic 3000 (EM3K)
+# Edumatic 3000 (Em3k)
 
-**Portable education.  Offline learning.  No student account required.**
+**Create. Share. Learn. Anywhere.**
 
 Edumatic 3000 (EM3K) is an open-source educational platform designed around self-contained course packages, a lightweight learner application, and tools that allow educators to create and distribute lessons and quizzes.
 
