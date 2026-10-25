@@ -4,13 +4,16 @@ These are goals and todo items that belong in the v1 MVP release
 
 # Viewer
 
-1. Complete functioning GUI and PWA
+1. Complete functioning Viewer GUI 
    - File Menu Links: File, Edit, Go, Help
    - Search functionality
    - Write content for welcome page (appears on first run)
    - Continue to refine dashboard page
    - Figure out difference between 'home' and 'dashboard' (same page)
    - Get the online / offline status button working (see section: Status Button below)
+
+2. PWA / Offline Usage
+
 
 ### Status Button
 
